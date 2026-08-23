@@ -7,7 +7,7 @@
   "scripts": {
     "dev:codex": "vite --host 127.0.0.1 --port 4173 --strictPort",
     "build": "vite build",
-    "test:unit": "node --test tests/client-behavior.test.mjs tests/manifesto-content.test.mjs tests/project-contract.test.mjs tests/stop-dev.test.mjs",
+    "test:unit": "node --test tests/client-behavior.test.mjs tests/manifesto-content.test.mjs tests/project-contract.test.mjs tests/repository-handoff.test.mjs tests/stop-dev.test.mjs",
     "test:e2e": "playwright test",
     "validate:codex": "npm run test:unit && npm run build && node --test tests/dist-artifact.test.mjs && npm run test:e2e && git diff --check",
     "stop:codex": "node scripts/stop-dev.mjs"
