@@ -6,7 +6,8 @@ const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
 
 test('document identity and manifesto thesis are explicit', () => {
   assert.match(html, /<html lang="en">/);
-  assert.match(html, /<title>Open Humanoid Engineering — Build Intelligence from Matter Up<\/title>/);
+  assert.match(html, /<title>Open Humanoid Engineering<\/title>/);
+  assert.match(html, /<link rel="icon" type="image\/svg\+xml" href="\/favicon\.svg" \/>/);
   assert.match(html, /<h1[^>]*>\s*Build intelligence\s*<span>from matter up\.<\/span>\s*<\/h1>/);
   assert.match(html, /Engineering has to become whole again\./);
   assert.match(html, /open, AI-native engineering school/i);
