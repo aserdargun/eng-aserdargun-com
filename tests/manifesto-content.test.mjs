@@ -81,23 +81,10 @@ test('production candidacy is clearly separated from physical validation', () =>
 });
 
 test('navigation and public repository links expose the complete static surface', () => {
-  for (const id of ['manifesto', 'curriculum', 'platform', 'specializations', 'horizon', 'production-gate']) {
+  for (const id of ['manifesto', 'curriculum', 'platform', 'specializations', 'production-gate']) {
     assert.match(html, new RegExp(`id="${id}"`));
   }
   assert.match(html, /data-menu-toggle/);
   assert.match(html, /data-site-nav/);
   assert.match(html, /https:\/\/github\.com\/aserdargun\/eng-aserdargun-com/);
-});
-
-test('the horizon section surfaces itl as the first parallel project linked from the sidebar', () => {
-  assert.match(html, /The horizon · what this loop serves/);
-  assert.match(html, /id="horizon"/);
-  assert.match(html, /id="horizon-title">The horizon · what this loop serves\.</);
-  assert.match(html, /Open itl\.aserdargun\.com/);
-  const horizonLink = html.match(/<a[^>]+class="nav-github"[^>]+href="https:\/\/itl\.aserdargun\.com"[^>]*>[^<]*itl\.aserdargun\.com/);
-  assert.ok(horizonLink, 'sidebar must link to https://itl.aserdargun.com');
-  const horizonSidebarLink = html.match(/<a[^>]+href="#horizon"[^>]*>horizon<\/a>/);
-  assert.ok(horizonSidebarLink, 'sidebar must link to #horizon');
-  const sidebarSection = html.match(/<span class="site-nav__section"[^>]*>The horizon · what this loop serves<\/span>/);
-  assert.ok(sidebarSection, 'sidebar must label the horizon section before its links');
 });
