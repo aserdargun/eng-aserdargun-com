@@ -179,6 +179,19 @@ a {
   display: none;
 }
 
+.site-nav__section {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  white-space: normal;
+  max-width: 18ch;
+  line-height: 1.4;
+}
+
 .menu-toggle {
   display: none;
 }
@@ -1020,6 +1033,90 @@ a {
   font-weight: 600;
 }
 
+.horizon {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  column-gap: 50px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.horizon-heading h2 {
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+.horizon-heading p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.horizon-list {
+  display: grid;
+  grid-column: 2;
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.horizon-list li {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  column-gap: 30px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.horizon-list h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.horizon-list p {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.horizon-index {
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  align-self: start;
+  padding-top: 4px;
+}
+
+.horizon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.horizon-link:hover,
+.horizon-link:focus-visible {
+  background: var(--blue);
+  color: var(--bg);
+}
+
 .production-gate {
   border-top: 1px solid var(--blue);
 }
@@ -1137,7 +1234,8 @@ a {
 
   .manifesto,
   .curriculum,
-  .specializations {
+  .specializations,
+  .horizon {
     grid-template-columns: 120px 1fr;
     gap: 34px;
   }
@@ -1514,6 +1612,7 @@ a {
   .curriculum-heading h2,
   .platform-heading h2,
   .specializations h2,
+  .horizon-heading h2,
   .production-gate h2 {
     font-size: clamp(45px, 13vw, 60px);
   }
@@ -1574,6 +1673,35 @@ a {
   .specialization-item p {
     padding-left: 16px;
     font-size: 17px;
+  }
+
+  .horizon,
+  .horizon-list {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .horizon-list {
+    grid-column: 1;
+    margin-top: 36px;
+  }
+
+  .horizon-list li {
+    grid-template-columns: 48px 1fr;
+    column-gap: 14px;
+    padding: 22px 0;
+  }
+
+  .horizon-list h3 {
+    font-size: 19px;
+  }
+
+  .horizon-index {
+    font-size: 11px;
+  }
+
+  .horizon-link {
+    font-size: 11px;
   }
 
   .site-footer {
