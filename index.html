@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Open Humanoid Engineering is a public manifesto for an AI-native, project-based path from chemistry to embodied intelligence."
+      content="Open Humanoid Engineering is a public, AI-native path from chemistry to safe whole-body intelligence."
     />
-    <meta name="theme-color" content="#f7f7f2" />
+    <meta name="theme-color" content="#f2f3ed" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Open Humanoid Engineering" />
     <meta
       property="og:description"
-      content="Build intelligence from matter up — an open manifesto for AI-native humanoid engineering education."
+      content="Build intelligence from matter up — an open field manual for humanoid engineering."
     />
     <title>Open Humanoid Engineering</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -24,8 +24,9 @@
 
     <header class="site-header" data-site-header>
       <a class="wordmark" href="#top" aria-label="Open Humanoid Engineering home">
-        <span class="wordmark-mark" aria-hidden="true"></span>
-        <span>Open Humanoid Engineering</span>
+        <img src="/favicon.svg" alt="" width="24" height="24" />
+        <span class="wordmark-name">Open Humanoid Engineering</span>
+        <span class="wordmark-revision">Rev. 02</span>
       </a>
 
       <button
@@ -33,17 +34,18 @@
         type="button"
         aria-expanded="false"
         aria-controls="site-nav"
+        aria-label="Open navigation"
         data-menu-toggle
       >
-        <span>Menu</span>
-        <span class="menu-toggle-lines" aria-hidden="true"></span>
+        <span data-menu-label>Menu</span>
       </button>
 
       <nav id="site-nav" class="site-nav" aria-label="Primary navigation" data-site-nav>
         <a href="#manifesto">Manifesto</a>
+        <a href="#frontier">Frontier</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#platform">Platform</a>
-        <a href="#specializations">Specializations</a>
+        <a href="#production-gate">Gate</a>
         <a
           class="nav-github"
           href="https://github.com/aserdargun/eng-aserdargun-com"
@@ -55,39 +57,53 @@
 
     <main id="main-content">
       <section id="top" class="hero" aria-labelledby="hero-title">
+        <div class="hero-status">
+          <p><span aria-hidden="true"></span> Open curriculum / Physical AI</p>
+          <p>Revision 02 · August 2026</p>
+        </div>
+
         <div class="hero-copy">
+          <p class="eyebrow">From chemistry to whole-body intelligence</p>
           <h1 id="hero-title">
             Build intelligence
             <span>from matter up.</span>
           </h1>
           <p class="hero-lede">
-            An open, AI-native engineering school for building humanoids from chemistry to
-            computation.
+            An open, AI-native engineering school for teams building humanoids that can be
+            explained, tested, challenged, and trusted.
           </p>
-          <div class="hero-actions" aria-label="Explore the manifesto">
-            <a href="#manifesto">Read the manifesto <span aria-hidden="true">→</span></a>
-            <a href="#curriculum">Explore the curriculum <span aria-hidden="true">→</span></a>
+          <div class="hero-actions" aria-label="Explore Open Humanoid Engineering">
+            <a class="action-primary" href="#curriculum">
+              Explore the curriculum <span aria-hidden="true">→</span>
+            </a>
+            <a href="#frontier">See the 2026 frontier <span aria-hidden="true">↓</span></a>
           </div>
         </div>
 
-        <div class="hero-figure" aria-label="Exploded technical drawing of a humanoid robot">
-          <div class="figure-crosshair figure-crosshair-top" aria-hidden="true"></div>
-          <img
-            src="/humanoid-exploded.png"
-            alt="Exploded engineering schematic showing a complete humanoid and its mechanical assemblies"
-            width="1122"
-            height="1402"
-          />
-          <div class="figure-notes" aria-hidden="true">
-            <span>STRUCTURE</span>
-            <span>ACTUATION</span>
-            <span>SENSORS</span>
-            <span>POWER</span>
-            <span>COMPUTE</span>
+        <figure class="hero-figure">
+          <div class="figure-frame">
+            <img
+              src="/humanoid-exploded.png"
+              alt="Exploded engineering schematic showing a complete humanoid and its mechanical assemblies"
+              width="1122"
+              height="1402"
+            />
           </div>
-        </div>
+          <figcaption>
+            <span>Reference assembly / System 00</span>
+            <span>Structure · Actuation · Sense · Power · Compute</span>
+          </figcaption>
+        </figure>
+
+        <dl class="hero-metrics" aria-label="Program at a glance">
+          <div><dt>Shared build</dt><dd>01 humanoid</dd></div>
+          <div><dt>Core studios</dt><dd>06 disciplines</dd></div>
+          <div><dt>Open path</dt><dd>04 + 01 years</dd></div>
+          <div><dt>Team output</dt><dd>Public evidence</dd></div>
+        </dl>
 
         <div class="discipline-sequence" aria-label="Foundational discipline sequence">
+          <p class="sequence-label">Matter-to-intelligence spine</p>
           <ol>
             <li><span>Chemistry</span></li>
             <li><span>Materials</span></li>
@@ -95,7 +111,7 @@
             <li><span>Electrical</span></li>
             <li><span>Computer Science</span></li>
           </ol>
-          <p><span>Biomechanics + Neuroengineering</span></p>
+          <p class="sequence-reference"><span>Biomechanics + Neuroengineering</span></p>
         </div>
       </section>
 
@@ -105,13 +121,18 @@
         aria-labelledby="manifesto-title"
         data-reveal
       >
-        <div class="section-index" aria-hidden="true">01 / MANIFESTO</div>
+        <div class="section-rail">
+          <p class="section-index" aria-hidden="true">01 / Manifesto</p>
+          <p class="section-note">A system of responsibility, not a list of subjects.</p>
+        </div>
+
         <div class="manifesto-intro">
+          <p class="eyebrow">The operating principles</p>
           <h2 id="manifesto-title">Engineering has to become whole again.</h2>
           <p>
-            Software made abstraction abundant. Artificial intelligence makes it nearly free.
-            The next frontier is not another layer of abstraction—it is the difficult return to
-            matter, energy, movement, uncertainty, and consequence.
+            Software made abstraction abundant. AI made generation abundant. Physical intelligence
+            restores the hard constraints: matter, energy, time, uncertainty, people, and
+            consequence.
           </p>
         </div>
 
@@ -122,8 +143,7 @@
               <h3>Matter before models.</h3>
               <p>
                 Intelligence begins with chemistry, surfaces, structures, friction, heat, and
-                failure. A model is useful only when it remains accountable to the world it
-                represents.
+                failure. A model is useful only when it remains accountable to the world.
               </p>
             </div>
           </li>
@@ -132,8 +152,8 @@
             <div>
               <h3>Evidence before claims.</h3>
               <p>
-                Every design decision must point to an equation, a simulation, a test, and a
-                stated limitation. Reproducibility is the native language of trust.
+                Every decision points to an equation, a simulation, a test, a result, and a stated
+                limitation. Reproducibility is the native language of trust.
               </p>
             </div>
           </li>
@@ -142,23 +162,98 @@
             <div>
               <h3>AI as collaborator, never alibi.</h3>
               <p>
-                Students work with AI from day one. They also expose its assumptions, challenge
-                its answers, inject faults, and remain responsible for the final engineering
-                judgment.
+                Teams use AI from day one, expose its assumptions, challenge its answers, inject
+                faults, and retain responsibility for the final engineering judgment.
               </p>
             </div>
           </li>
           <li>
             <span class="principle-number">04</span>
             <div>
+              <h3>Whole body, whole system.</h3>
+              <p>
+                Perception, planning, control, mechanics, power, and human interaction are assessed
+                together. Local success cannot hide system-level failure.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="principle-number">05</span>
+            <div>
               <h3>Open progress compounds.</h3>
               <p>
-                Laboratories, failures, evidence, and appeals belong in public. The school grows
-                by making every verified contribution available to the next team.
+                Laboratories, failures, evidence, and appeals belong in public. Every verified
+                contribution becomes a stronger starting point for the next team.
               </p>
             </div>
           </li>
         </ol>
+      </section>
+
+      <section
+        id="frontier"
+        class="frontier"
+        aria-labelledby="frontier-title"
+        data-reveal
+      >
+        <div class="frontier-shell">
+          <div class="section-rail">
+            <p class="section-index" aria-hidden="true">02 / Frontier 2026</p>
+            <p class="section-note">The field moved. The curriculum moved with it.</p>
+          </div>
+
+          <div class="frontier-heading">
+            <p class="eyebrow">Current signal / curriculum response</p>
+            <h2 id="frontier-title">A humanoid is now an embodied agent stack.</h2>
+            <p>
+              The frontier is shifting from isolated robot skills toward long-horizon reasoning,
+              multi-embodiment policies, on-device action, open simulation, collaboration, and
+              explicit human intervention.
+            </p>
+          </div>
+
+          <ol class="frontier-list">
+            <li>
+              <span>01</span>
+              <div><strong>Embodied reasoning</strong><p>Plan, act, observe, and recover across long tasks.</p></div>
+              <p>Teach task decomposition, progress tracking, uncertainty, and escalation.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <div><strong>Multi-embodiment VLA</strong><p>Transfer intent across different bodies and tools.</p></div>
+              <p>Separate high-level intent from embodiment-specific control and validation.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <div><strong>Open physics + synthetic data</strong><p>Train and break systems before hardware.</p></div>
+              <p>Make simulation assumptions, randomization ranges, and reality gaps auditable.</p>
+            </li>
+            <li>
+              <span>04</span>
+              <div><strong>On-device autonomy</strong><p>Keep critical perception and action close to the robot.</p></div>
+              <p>Design for latency, power, degraded networks, and bounded fallback behavior.</p>
+            </li>
+            <li>
+              <span>05</span>
+              <div><strong>Human-centered safety cases</strong><p>Know when to stop, refuse, or ask for help.</p></div>
+              <p>Evaluate proximity, tool calls, uncertainty, and safe human intervention.</p>
+            </li>
+          </ol>
+
+          <div class="source-ledger" aria-label="Signals shaping the 2026 revision">
+            <p>Signals shaping this revision</p>
+            <a
+              href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
+              target="_blank"
+              rel="noreferrer"
+            >Google DeepMind · Whole-body intelligence <span aria-hidden="true">↗</span></a>
+            <a
+              href="https://nvidianews.nvidia.com/_gallery/download_pdf/68da9f263d6332a3dba5f16c/"
+              target="_blank"
+              rel="noreferrer"
+            >NVIDIA · Newton + GR00T N1.6 <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
       </section>
 
       <section
@@ -167,93 +262,112 @@
         aria-labelledby="curriculum-title"
         data-reveal
       >
-        <div class="section-index" aria-hidden="true">02 / CURRICULUM</div>
+        <div class="section-rail">
+          <p class="section-index" aria-hidden="true">03 / Curriculum</p>
+          <p class="section-note">One integrated build, deepened through four public team cycles.</p>
+        </div>
+
         <div class="curriculum-heading">
+          <p class="eyebrow">The shared build path</p>
           <h2 id="curriculum-title">One humanoid. Four years. Every course a project.</h2>
           <p>Each year deepens one layer while carrying every previous layer forward.</p>
         </div>
 
         <aside class="curriculum-notes" aria-label="Curriculum principles">
-          <div>
-            <strong>AI from day one</strong>
-            <p>AI is a core studio tool across design, analysis, code, and verification.</p>
-          </div>
-          <div>
-            <strong>Teamwork in every studio</strong>
-            <p>Complex problems. Rotating roles. Shared ownership. Public evidence.</p>
-          </div>
+          <div><strong>AI from day one</strong><p>Generate, simulate, critique, and verify.</p></div>
+          <div><strong>Teamwork in every studio</strong><p>Rotating roles. Shared ownership. Public evidence.</p></div>
+          <div><strong>One evidence contract</strong><p>Claim → model → run → metric → limit.</p></div>
         </aside>
 
         <ol class="year-list">
           <li class="year-row" data-year="1">
-            <span class="year-number">01</span>
+            <div class="year-id"><span>Year</span><strong>01</strong></div>
             <div class="year-core">
               <p>Chemistry → Materials</p>
               <h3>Intelligent limb</h3>
             </div>
-            <div class="year-diagram year-diagram-joint" aria-hidden="true">
-              <span></span><span></span><span></span>
+            <div class="year-focus">
+              <span>Interface chemistry</span><span>AI-designed materials</span><span>Failure mechanics</span>
             </div>
-            <p class="year-description">
-              Cells, surfaces, lubricants, polymers, metals, composites, fatigue, and a virtual
-              human-scale joint grounded in anatomy.
-            </p>
+            <div class="year-description">
+              <p>
+                Cells, surfaces, polymers, metals, composites, fatigue, and a virtual human-scale
+                joint grounded in anatomy.
+              </p>
+              <strong>Team evidence · material passport + joint failure memo</strong>
+            </div>
           </li>
           <li class="year-row" data-year="2">
-            <span class="year-number">02</span>
+            <div class="year-id"><span>Year</span><strong>02</strong></div>
             <div class="year-core">
               <p>Mechanics</p>
               <h3>Fixed-base upper body</h3>
             </div>
-            <div class="year-diagram year-diagram-arm" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
+            <div class="year-focus">
+              <span>Dexterous hands</span><span>Digital twin</span><span>Synthetic data</span>
             </div>
-            <p class="year-description">
-              Actuators, transmissions, arms, hands, tribology, manufacturability, grasping, and
-              tool use in a circular workcell.
-            </p>
+            <div class="year-description">
+              <p>
+                Actuators, transmissions, arms, hands, tribology, manufacturability, grasping, and
+                tool use in a circular workcell.
+              </p>
+              <strong>Team evidence · CAD/FEM twin + reproducible manipulation study</strong>
+            </div>
           </li>
           <li class="year-row" data-year="3">
-            <span class="year-number">03</span>
+            <div class="year-id"><span>Year</span><strong>03</strong></div>
             <div class="year-core">
               <p>Electrical</p>
               <h3>Walking full-body twin</h3>
             </div>
-            <div class="year-diagram year-diagram-power" aria-hidden="true">
-              <span>POWER</span><span>DRIVE</span><span>SENSE</span><span>CONTROL</span>
+            <div class="year-focus">
+              <span>Edge control</span><span>Power + thermal</span><span>Fault injection</span>
             </div>
-            <p class="year-description">
-              Drives, battery management, sensing, real-time networks, balance control, and
-              functional safety under injected faults.
-            </p>
+            <div class="year-description">
+              <p>
+                Drives, battery management, sensing, real-time networks, balance control, and
+                functional safety under injected faults.
+              </p>
+              <strong>Team evidence · HIL campaign + safe-stop envelope</strong>
+            </div>
           </li>
           <li class="year-row" data-year="4">
-            <span class="year-number">04</span>
+            <div class="year-id"><span>Year</span><strong>04</strong></div>
             <div class="year-core">
               <p>Computer Science</p>
               <h3>Autonomous digital humanoid</h3>
             </div>
-            <div class="year-diagram year-diagram-compute" aria-hidden="true">
-              <span>PERCEIVE</span><span>PLAN</span><span>CONTROL</span><span>LEARN</span>
+            <div class="year-focus">
+              <span>Embodied reasoning</span><span>VLA policies</span><span>Human intervention</span>
             </div>
-            <p class="year-description">
-              Whole-body control, robot learning, VLA systems, planning, cybersecurity, human
-              intervention, and trustworthy autonomy.
-            </p>
+            <div class="year-description">
+              <p>
+                Whole-body control, robot learning, VLA systems, planning, cybersecurity,
+                intervention, and trustworthy autonomy.
+              </p>
+              <strong>Team evidence · unseen-task benchmark + autonomy safety case</strong>
+            </div>
           </li>
         </ol>
 
         <p class="human-reference">
           <strong>Continuous human reference</strong>
-          Biomechanics + Neuroengineering runs through every year: anatomy, movement, motor
-          control, ergonomics, injury limits, and human–robot interaction.
+          <span>
+            Biomechanics + Neuroengineering runs through every year: anatomy, movement, motor
+            control, ergonomics, injury limits, intent, and human–robot interaction.
+          </span>
         </p>
       </section>
 
       <section id="platform" class="platform" aria-labelledby="platform-title" data-reveal>
         <div class="platform-shell">
-          <div class="section-index" aria-hidden="true">03 / PLATFORM</div>
+          <div class="section-rail">
+            <p class="section-index" aria-hidden="true">04 / Platform</p>
+            <p class="section-note">The laboratory is software. Trust comes from its evidence.</p>
+          </div>
+
           <div class="platform-heading">
+            <p class="eyebrow">The open evidence loop</p>
             <h2 id="platform-title">The laboratory is software.</h2>
             <p>
               Students reproduce, explain, extend, challenge, and publish AI-generated
@@ -262,16 +376,16 @@
           </div>
 
           <ol class="lab-pipeline" data-lab-pipeline aria-label="AI laboratory workflow">
-            <li><span>Reproduce</span></li>
-            <li><span>Explain</span></li>
-            <li><span>Extend</span></li>
-            <li><span>Challenge</span></li>
-            <li><span>Publish</span></li>
+            <li><span>01</span><strong>Reproduce</strong><p>Make the baseline run.</p></li>
+            <li><span>02</span><strong>Explain</strong><p>Expose every assumption.</p></li>
+            <li><span>03</span><strong>Extend</strong><p>Change one boundary.</p></li>
+            <li><span>04</span><strong>Challenge</strong><p>Inject a hard failure.</p></li>
+            <li><span>05</span><strong>Publish</strong><p>Release the evidence.</p></li>
           </ol>
 
           <div class="platform-surfaces">
-            <article>
-              <span class="surface-index">01</span>
+            <article class="surface-lead">
+              <span class="surface-index">System / 01</span>
               <h3>AI Lab Package</h3>
               <pre aria-label="Example lab package files"><code>manifest.yaml
 models/
@@ -281,34 +395,22 @@ evidence.schema.json</code></pre>
               <p>Versioned physics, instruments, data, fault scenarios, and protected tests.</p>
             </article>
             <article>
-              <span class="surface-index">02</span>
+              <span class="surface-index">System / 02</span>
               <h3>Project Workspace</h3>
-              <div class="simulator-window" aria-hidden="true">
-                <span class="simulator-figure"></span>
-                <span class="simulator-ground"></span>
-                <span class="simulator-axis"></span>
-              </div>
-              <p>Shared CAD, code, models, runs, decisions, and transparent AI provenance.</p>
+              <p class="surface-output">CAD · CODE · MODELS · RUNS · DECISIONS</p>
+              <p>Shared engineering work with transparent AI provenance and human ownership.</p>
             </article>
             <article>
-              <span class="surface-index">03</span>
+              <span class="surface-index">System / 03</span>
               <h3>Evidence Graph</h3>
-              <div class="evidence-nodes" aria-hidden="true">
-                <span>CLAIM</span><span>MODEL</span><span>RUN</span><span>LIMIT</span>
-              </div>
-              <p>Every claim remains connected to its model, run, metric, and known limit.</p>
+              <p class="surface-output">CLAIM → MODEL → RUN → METRIC → LIMIT</p>
+              <p>Every claim remains connected to its result and known boundary.</p>
             </article>
             <article>
-              <span class="surface-index">04</span>
-              <h3>AI Jury Report</h3>
-              <p class="jury-result"><strong>PASS / CONTESTED</strong></p>
-              <p>Independent domain agents publish reasoning, confidence, and dissent.</p>
-            </article>
-            <article>
-              <span class="surface-index">05</span>
-              <h3>Open Appeal</h3>
-              <p class="appeal-fault">FAULT_INJECTION_07</p>
-              <p>Anyone can submit reproducible counter-evidence to a fresh, blind AI jury.</p>
+              <span class="surface-index">System / 04</span>
+              <h3>AI Jury Report + Open Appeal</h3>
+              <p class="surface-output">PASS / CONTESTED / INSUFFICIENT</p>
+              <p>Independent agents publish reasoning and dissent; anyone may submit counter-evidence.</p>
             </article>
           </div>
         </div>
@@ -320,46 +422,33 @@ evidence.schema.json</code></pre>
         aria-labelledby="specializations-title"
         data-reveal
       >
-        <div class="section-index" aria-hidden="true">04 / SPECIALIZATIONS</div>
-        <h2 id="specializations-title">Specialize at the intersections.</h2>
-        <p class="specializations-lede">
-          After four shared years, a fifth-year frontier portfolio turns breadth into a precise
-          research direction.
-        </p>
+        <div class="section-rail">
+          <p class="section-index" aria-hidden="true">05 / Specializations</p>
+          <p class="section-note">Breadth first. Precision after the system is understood.</p>
+        </div>
+
+        <div class="specializations-heading">
+          <p class="eyebrow">The fifth-year frontier</p>
+          <h2 id="specializations-title">Specialize at the intersections.</h2>
+          <p class="specializations-lede">
+            After four shared years, a fifth-year frontier portfolio turns breadth into a precise
+            research direction.
+          </p>
+        </div>
 
         <ol class="specialization-list">
-          <li class="specialization-item">
-            <span>01</span><p>Computational Chemistry, Energy &amp; Interfaces</p>
-          </li>
-          <li class="specialization-item">
-            <span>02</span><p>AI-Designed Materials &amp; Soft Robotics</p>
-          </li>
-          <li class="specialization-item">
-            <span>03</span><p>Humanoid Mechanics &amp; Dexterous Manipulation</p>
-          </li>
-          <li class="specialization-item">
-            <span>04</span><p>Intelligent Power, Actuation &amp; Edge Systems</p>
-          </li>
-          <li class="specialization-item">
-            <span>05</span><p>Embodied AI &amp; Robot Learning</p>
-          </li>
-          <li class="specialization-item">
-            <span>06</span><p>Neuroengineering &amp; Human–Robot Symbiosis</p>
-          </li>
-          <li class="specialization-item">
-            <span>07</span><p>Trustworthy Digital Twins &amp; Autonomous Circular Manufacturing</p>
-          </li>
+          <li class="specialization-item"><span>01</span><p>Computational Chemistry, Energy &amp; Interfaces</p></li>
+          <li class="specialization-item"><span>02</span><p>AI-Designed Materials &amp; Soft Robotics</p></li>
+          <li class="specialization-item"><span>03</span><p>Humanoid Mechanics &amp; Dexterous Manipulation</p></li>
+          <li class="specialization-item"><span>04</span><p>Intelligent Power, Actuation &amp; Edge Systems</p></li>
+          <li class="specialization-item"><span>05</span><p>Embodied AI &amp; Robot Learning</p></li>
+          <li class="specialization-item"><span>06</span><p>Neuroengineering &amp; Human–Robot Symbiosis</p></li>
+          <li class="specialization-item"><span>07</span><p>Trustworthy Digital Twins &amp; Autonomous Circular Manufacturing</p></li>
         </ol>
 
         <div class="portfolio-outcomes">
-          <div>
-            <span>YEAR 04</span>
-            <strong>Integrated Humanoid Engineering Portfolio</strong>
-          </div>
-          <div>
-            <span>YEAR 05</span>
-            <strong>Advanced Open Engineering Portfolio</strong>
-          </div>
+          <div><span>Year 04</span><strong>Integrated Humanoid Engineering Portfolio</strong></div>
+          <div><span>Year 05</span><strong>Advanced Open Engineering Portfolio</strong></div>
         </div>
       </section>
 
@@ -370,33 +459,51 @@ evidence.schema.json</code></pre>
         data-reveal
       >
         <div class="production-gate-copy">
-          <div class="section-index" aria-hidden="true">05 / PRODUCTION GATE</div>
-          <h2 id="production-title">
-            If it survives the digital world, it earns the chance to enter the physical one.
-          </h2>
-          <p>
-            A design that survives multi-physics simulation, randomized environments, injected
-            failures, energy and thermal limits, cyberattacks, and unseen tasks may be designated
-            a <strong>Production Candidate</strong>.
-          </p>
-          <p>
-            That designation does not certify a physical robot. It means the evidence is strong
-            enough to seek funding, manufacturing review, and independent physical validation.
-          </p>
+          <div class="section-rail">
+            <p class="section-index" aria-hidden="true">06 / Production Gate</p>
+            <p class="section-note">Simulation earns the right to ask for physical validation.</p>
+          </div>
+
+          <div class="production-heading">
+            <p class="gate-status"><span aria-hidden="true"></span> Evidence required</p>
+            <h2 id="production-title">
+              If it survives the digital world, it earns the chance to enter the physical one.
+            </h2>
+            <p>
+              A design that survives multi-physics simulation, randomized environments, injected
+              failures, energy and thermal limits, cyberattacks, unseen tasks, and human proximity
+              scenarios may be designated a <strong>Production Candidate</strong>.
+            </p>
+            <p>
+              That designation does not certify a physical robot. It means the evidence is strong
+              enough to seek funding, manufacturing review, and independent physical validation.
+            </p>
+          </div>
+
+          <dl class="gate-ledger" aria-label="Production candidate evidence">
+            <div><dt>Physics</dt><dd>Multi-physics limits + reality-gap statement</dd></div>
+            <div><dt>Autonomy</dt><dd>Unseen-task results + uncertainty behavior</dd></div>
+            <div><dt>Safety</dt><dd>Fault response + human intervention envelope</dd></div>
+            <div><dt>Provenance</dt><dd>Models, runs, decisions, and AI contribution history</dd></div>
+          </dl>
+
           <a
             class="production-link"
             href="https://github.com/aserdargun/eng-aserdargun-com"
             target="_blank"
             rel="noreferrer"
-          >Read on GitHub <span aria-hidden="true">→</span></a>
+          >Inspect the open repository <span aria-hidden="true">→</span></a>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>Open, public, evolving.</p>
-      <p>Open Humanoid Engineering · 2026</p>
-      <a href="#top">Back to top ↑</a>
+      <div><p>Open, public, evolving.</p><p>Revision 02 · August 2026</p></div>
+      <p>Open Humanoid Engineering</p>
+      <div class="footer-links">
+        <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">WCAG 2.2 <span aria-hidden="true">↗</span></a>
+        <a href="#top">Back to top ↑</a>
+      </div>
     </footer>
   </body>
 </html>

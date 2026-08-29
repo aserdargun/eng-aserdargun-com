@@ -1,7 +1,15 @@
-export function setMenuState(open, { button, nav, documentElement }) {
+export function setMenuState(open, { button, nav, documentElement, pageRegions = [] }) {
   button.setAttribute('aria-expanded', String(open));
+  button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
   nav.dataset.open = String(open);
   documentElement.classList.toggle('menu-open', open);
+
+  const label = button.querySelector?.('[data-menu-label]');
+  if (label) label.textContent = open ? 'Close' : 'Menu';
+
+  pageRegions.forEach((region) => {
+    region.inert = open;
+  });
 }
 
 export function initMenu(documentRef = document) {
@@ -9,7 +17,12 @@ export function initMenu(documentRef = document) {
   const nav = documentRef.querySelector('[data-site-nav]');
   if (!button || !nav) return;
 
-  const controls = { button, nav, documentElement: documentRef.documentElement };
+  const controls = {
+    button,
+    nav,
+    documentElement: documentRef.documentElement,
+    pageRegions: [...(documentRef.querySelectorAll?.('main, footer') ?? [])],
+  };
   button.addEventListener('click', () => {
     setMenuState(button.getAttribute('aria-expanded') !== 'true', controls);
   });
@@ -49,4 +62,3 @@ export function initReveals(documentRef = document, windowRef = window) {
 
   sections.forEach((section) => observer.observe(section));
 }
-

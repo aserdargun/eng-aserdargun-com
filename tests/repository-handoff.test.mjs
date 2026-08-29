@@ -25,8 +25,8 @@ test('repository carries an MIT license', async () => {
 test('continuous validation runs the same local contract', async () => {
   const workflow = await read('.github/workflows/validate.yml');
 
-  assert.match(workflow, /actions\/checkout@v7/);
-  assert.match(workflow, /actions\/setup-node@v7/);
+  assert.match(workflow, /actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1/);
+  assert.match(workflow, /actions\/setup-node@820762786026740c76f36085b0efc47a31fe5020/);
   assert.match(workflow, /npm ci/);
   assert.match(workflow, /playwright install --with-deps chromium/);
   assert.match(workflow, /npm run validate:codex/);

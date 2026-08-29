@@ -67,6 +67,22 @@ test('the AI laboratory pipeline is ordered and evidence based', () => {
   }
 });
 
+test('the 2026 frontier makes current physical AI shifts explicit and sourced', () => {
+  for (const signal of [
+    'Embodied reasoning',
+    'Multi-embodiment VLA',
+    'Open physics \\+ synthetic data',
+    'On-device autonomy',
+    'Human-centered safety cases',
+  ]) {
+    assert.match(html, new RegExp(signal, 'i'));
+  }
+
+  assert.match(html, /deepmind\.google\/blog\/gemini-robotics-2/);
+  assert.match(html, /nvidianews\.nvidia\.com/);
+  assert.match(html, /www\.w3\.org\/TR\/WCAG22/);
+});
+
 test('seven specializations and open portfolio outcomes are listed without degree claims', () => {
   assert.equal((html.match(/class="specialization-item"/g) ?? []).length, 7);
   assert.match(html, /Integrated Humanoid Engineering Portfolio/);
@@ -81,7 +97,14 @@ test('production candidacy is clearly separated from physical validation', () =>
 });
 
 test('navigation and public repository links expose the complete static surface', () => {
-  for (const id of ['manifesto', 'curriculum', 'platform', 'specializations', 'production-gate']) {
+  for (const id of [
+    'manifesto',
+    'frontier',
+    'curriculum',
+    'platform',
+    'specializations',
+    'production-gate',
+  ]) {
     assert.match(html, new RegExp(`id="${id}"`));
   }
   assert.match(html, /data-menu-toggle/);
