@@ -1,13 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#1320ff"/>
-  <g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 22v21l6 6h10l6-6V22"/>
-    <path d="M21 29h-8m30 0h8M32 22v-9"/>
-    <path d="M27 35h2m6 0h2m-9 7h8"/>
-  </g>
-  <g fill="#fff">
-    <circle cx="13" cy="29" r="3"/>
-    <circle cx="51" cy="29" r="3"/>
-    <circle cx="32" cy="13" r="3"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="eng">
+  <rect width="320" height="320" rx="64" fill="#121310"/>
+  <circle cx="160" cy="142" r="108" fill="#c8ff36"/>
+  <g transform="translate(60 42)">
+    <g fill="#0c0d0a">
+      <rect x="72" y="14" width="56" height="44" rx="10" />
+      <rect x="48" y="58" width="104" height="92" rx="14" fill="none" stroke="#0c0d0a" stroke-width="10" />
+      <rect x="58" y="150" width="28" height="38" rx="6" />
+      <rect x="114" y="150" width="28" height="38" rx="6" />
+    </g>
+    <circle cx="88" cy="36" r="5" fill="#c8ff36" />
+    <circle cx="112" cy="36" r="5" fill="#c8ff36" /></g>
+  <text x="160" y="296" text-anchor="middle" fill="#c8ff36"
+    font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="800"
+    letter-spacing="-2">ENG</text>
 </svg>
