@@ -11,7 +11,7 @@ test.describe('Open Humanoid Engineering manifesto', () => {
     await page.goto('/');
 
     await expect(page).toHaveTitle(/^ENG - /);
-    await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/favicon.svg');
+    await expect(page.locator('link[rel="icon"][type="image/svg+xml"]')).toHaveAttribute('href', '/favicon.svg');
     await expect(page.getByRole('heading', { level: 1 })).toContainText('Build intelligence');
     await expect(page.getByRole('heading', { name: 'The laboratory is software.' })).toBeVisible();
     await expect(page.locator('[data-year]')).toHaveCount(4);
