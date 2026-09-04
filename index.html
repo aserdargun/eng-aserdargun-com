@@ -8,7 +8,9 @@
       content="Open Humanoid Engineering is a public, AI-native path from chemistry to safe whole-body intelligence."
     />
     <meta name="theme-color" content="#f2f3ed" />
+    <link rel="canonical" href="https://eng.aserdargun.com/" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://eng.aserdargun.com/" />
     <meta property="og:title" content="ENG - Humanoid Engineering" />
     <meta
       property="og:description"
@@ -16,10 +18,10 @@
     />
     <title>ENG - Humanoid Engineering</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="stylesheet" href="/src/styles.css" />
     <script type="module" src="/src/main.js"></script>
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -28,7 +30,7 @@
       <a class="wordmark" href="#top" aria-label="Open Humanoid Engineering home">
         <img src="/favicon.svg" alt="" width="24" height="24" />
         <span class="wordmark-name">Open Humanoid Engineering</span>
-        <span class="wordmark-revision">Rev. 02</span>
+        <span class="wordmark-revision">Rev. 03</span>
       </a>
 
       <button
@@ -47,6 +49,7 @@
         <a href="#frontier">Frontier</a>
         <a href="#curriculum">Curriculum</a>
         <a href="#platform">Platform</a>
+        <a href="#specializations">Specializations</a>
         <a href="#production-gate">Gate</a>
         <a
           class="nav-github"
@@ -57,11 +60,11 @@
       </nav>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <section id="top" class="hero" aria-labelledby="hero-title">
         <div class="hero-status">
           <p><span aria-hidden="true"></span> Open curriculum / Physical AI</p>
-          <p>Revision 02 · August 2026</p>
+          <p>Revision 03 · September 2026</p>
         </div>
 
         <div class="hero-copy">
@@ -71,7 +74,7 @@
             <span>from matter up.</span>
           </h1>
           <p class="hero-lede">
-            An open, AI-native engineering school for teams building humanoids that can be
+            An open, AI-native curriculum for teams building humanoids that can be
             explained, tested, challenged, and trusted.
           </p>
           <div class="hero-actions" aria-label="Explore Open Humanoid Engineering">
@@ -222,13 +225,13 @@
             </li>
             <li>
               <span>02</span>
-              <div><strong>Multi-embodiment VLA</strong><p>Transfer intent across different bodies and tools.</p></div>
+              <div><strong>Multi-embodiment policies</strong><p>Transfer intent across different bodies and tools.</p></div>
               <p>Separate high-level intent from embodiment-specific control and validation.</p>
             </li>
             <li>
               <span>03</span>
-              <div><strong>Open physics + synthetic data</strong><p>Train and break systems before hardware.</p></div>
-              <p>Make simulation assumptions, randomization ranges, and reality gaps auditable.</p>
+              <div><strong>Diagnostic simulation</strong><p>Measure generalization, not benchmark familiarity.</p></div>
+              <p>Vary scenes and instructions; grade subtask progress, trajectory quality, and failure modes.</p>
             </li>
             <li>
               <span>04</span>
@@ -242,7 +245,7 @@
             </li>
           </ol>
 
-          <div class="source-ledger" aria-label="Signals shaping the 2026 revision">
+          <div class="source-ledger" aria-label="Signals shaping the September 2026 revision">
             <p>Signals shaping this revision</p>
             <a
               href="https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
@@ -250,10 +253,15 @@
               rel="noreferrer"
             >Google DeepMind · Whole-body intelligence <span aria-hidden="true">↗</span></a>
             <a
-              href="https://nvidianews.nvidia.com/_gallery/download_pdf/68da9f263d6332a3dba5f16c/"
+              href="https://developer.nvidia.com/blog/develop-humanoid-robot-policies-end-to-end-with-nvidia-isaac-gr00t/"
               target="_blank"
               rel="noreferrer"
-            >NVIDIA · Newton + GR00T N1.6 <span aria-hidden="true">↗</span></a>
+            >NVIDIA · Isaac GR00T 1.7 <span aria-hidden="true">↗</span></a>
+            <a
+              href="https://developer.nvidia.com/blog/how-to-evaluate-general-purpose-robot-policies-for-real-world-deployment/"
+              target="_blank"
+              rel="noreferrer"
+            >NVIDIA Research · Policy evaluation <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -313,7 +321,7 @@
                 Actuators, transmissions, arms, hands, tribology, manufacturability, grasping, and
                 tool use in a circular workcell.
               </p>
-              <strong>Team evidence · CAD/FEM twin + reproducible manipulation study</strong>
+              <strong>Team evidence · CAD + finite-element twin + reproducible manipulation study</strong>
             </div>
           </li>
           <li class="year-row" data-year="3">
@@ -330,7 +338,7 @@
                 Drives, battery management, sensing, real-time networks, balance control, and
                 functional safety under injected faults.
               </p>
-              <strong>Team evidence · HIL campaign + safe-stop envelope</strong>
+              <strong>Team evidence · hardware-in-the-loop campaign + safe-stop envelope</strong>
             </div>
           </li>
           <li class="year-row" data-year="4">
@@ -340,11 +348,11 @@
               <h3>Autonomous digital humanoid</h3>
             </div>
             <div class="year-focus">
-              <span>Embodied reasoning</span><span>VLA policies</span><span>Human intervention</span>
+              <span>Embodied reasoning</span><span>Vision-language-action policies</span><span>Human intervention</span>
             </div>
             <div class="year-description">
               <p>
-                Whole-body control, robot learning, VLA systems, planning, cybersecurity,
+                Whole-body control, robot learning, vision-language-action systems, planning, cybersecurity,
                 intervention, and trustworthy autonomy.
               </p>
               <strong>Team evidence · unseen-task benchmark + autonomy safety case</strong>
@@ -355,7 +363,7 @@
         <p class="human-reference">
           <strong>Continuous human reference</strong>
           <span>
-            Biomechanics + Neuroengineering runs through every year: anatomy, movement, motor
+            Biomechanics + Neuroengineering run through every year: anatomy, movement, motor
             control, ergonomics, injury limits, intent, and human–robot interaction.
           </span>
         </p>
@@ -472,7 +480,7 @@ evidence.schema.json</code></pre>
               If it survives the digital world, it earns the chance to enter the physical one.
             </h2>
             <p>
-              A design that survives multi-physics simulation, randomized environments, injected
+              A design that survives multiphysics simulation, randomized environments, injected
               failures, energy and thermal limits, cyberattacks, unseen tasks, and human proximity
               scenarios may be designated a <strong>Production Candidate</strong>.
             </p>
@@ -483,7 +491,7 @@ evidence.schema.json</code></pre>
           </div>
 
           <dl class="gate-ledger" aria-label="Production candidate evidence">
-            <div><dt>Physics</dt><dd>Multi-physics limits + reality-gap statement</dd></div>
+            <div><dt>Physics</dt><dd>Multiphysics limits + reality-gap statement</dd></div>
             <div><dt>Autonomy</dt><dd>Unseen-task results + uncertainty behavior</dd></div>
             <div><dt>Safety</dt><dd>Fault response + human intervention envelope</dd></div>
             <div><dt>Provenance</dt><dd>Models, runs, decisions, and AI contribution history</dd></div>
@@ -500,7 +508,7 @@ evidence.schema.json</code></pre>
     </main>
 
     <footer class="site-footer">
-      <div><p>Open, public, evolving.</p><p>Revision 02 · August 2026</p></div>
+      <div><p>Open, public, evolving.</p><p>Revision 03 · September 2026</p></div>
       <p>Open Humanoid Engineering</p>
       <div class="footer-links">
         <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noreferrer">WCAG 2.2 <span aria-hidden="true">↗</span></a>

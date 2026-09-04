@@ -8,9 +8,11 @@ test('document identity and manifesto thesis are explicit', () => {
   assert.match(html, /<html lang="en">/);
   assert.match(html, /<title>ENG - Humanoid Engineering<\/title>/);
   assert.match(html, /<link rel="icon" type="image\/svg\+xml" href="\/favicon\.svg" \/>/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eng\.aserdargun\.com\/" \/>/);
   assert.match(html, /<h1[^>]*>\s*Build intelligence\s*<span>from matter up\.<\/span>\s*<\/h1>/);
   assert.match(html, /Engineering has to become whole again\./);
-  assert.match(html, /open, AI-native engineering school/i);
+  assert.match(html, /open, AI-native curriculum/i);
+  assert.match(html, /Revision 03 · September 2026/);
 });
 
 test('the foundational sequence and continuous human reference are preserved', () => {
@@ -70,8 +72,8 @@ test('the AI laboratory pipeline is ordered and evidence based', () => {
 test('the 2026 frontier makes current physical AI shifts explicit and sourced', () => {
   for (const signal of [
     'Embodied reasoning',
-    'Multi-embodiment VLA',
-    'Open physics \\+ synthetic data',
+    'Multi-embodiment policies',
+    'Diagnostic simulation',
     'On-device autonomy',
     'Human-centered safety cases',
   ]) {
@@ -79,7 +81,8 @@ test('the 2026 frontier makes current physical AI shifts explicit and sourced', 
   }
 
   assert.match(html, /deepmind\.google\/blog\/gemini-robotics-2/);
-  assert.match(html, /nvidianews\.nvidia\.com/);
+  assert.match(html, /Isaac GR00T 1\.7/);
+  assert.match(html, /how-to-evaluate-general-purpose-robot-policies/);
   assert.match(html, /www\.w3\.org\/TR\/WCAG22/);
 });
 
@@ -109,5 +112,6 @@ test('navigation and public repository links expose the complete static surface'
   }
   assert.match(html, /data-menu-toggle/);
   assert.match(html, /data-site-nav/);
+  assert.match(html, /href="#specializations">Specializations<\/a>/);
   assert.match(html, /https:\/\/github\.com\/aserdargun\/eng-aserdargun-com/);
 });

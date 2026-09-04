@@ -632,7 +632,7 @@ a {
   gap: 16px;
   margin-top: 48px;
   padding: 20px 0;
-  grid-template-columns: 0.8fr 1fr 1fr;
+  grid-template-columns: minmax(145px, 0.72fr) repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--lime);
   border-bottom: 1px solid var(--lime);
   font-family: var(--font-mono);

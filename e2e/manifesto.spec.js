@@ -21,6 +21,10 @@ test.describe('Open Humanoid Engineering manifesto', () => {
     await expect(page).toHaveURL(/#curriculum$/);
     await expect(page.getByRole('heading', { name: /One humanoid/ })).toBeInViewport();
 
+    await page.getByRole('link', { name: 'Specializations', exact: true }).click();
+    await expect(page).toHaveURL(/#specializations$/);
+    await expect(page.getByRole('heading', { name: 'Specialize at the intersections.' })).toBeInViewport();
+
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
     expect(overflow).toBeLessThanOrEqual(1);
     expect(diagnostics).toEqual([]);
