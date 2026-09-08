@@ -42,7 +42,7 @@ test('Azure deployment workflow publishes only the verified static artifact', as
   assert.match(workflow, /cancel-in-progress: false/);
   assert.match(workflow, /actions\/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1/);
   assert.match(workflow, /actions\/setup-node@820762786026740c76f36085b0efc47a31fe5020/);
-  assert.match(workflow, /Azure\/static-web-apps-deploy@4d27395796ac319302594769cfe812bd207490b1/);
+  assert.match(workflow, /Azure\/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9/);
   assert.match(workflow, /npm ci/);
   assert.match(workflow, /npm run validate:codex/);
   assert.match(workflow, /azure_static_web_apps_api_token: \$\{\{ secrets\.AZURE_STATIC_WEB_APPS_API_TOKEN_SWA_ENG_ASERDARGUN_COM \}\}/);
