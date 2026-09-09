@@ -19,6 +19,8 @@ The public website is the evolving expression of this idea: [github.com/aserdarg
 
 The fifth year becomes an intersectional research portfolio rather than another general year.
 
+The Platform section connects the curriculum to [HEX — Humanoid Engineering Explorer](https://hex.aserdargun.com/), an English/Turkish 3D companion application. A knee exploration exercise links component inspection to ENG project questions while keeping educational geometry and illustrative motion distinct from validated physical behavior.
+
 ## Local lifecycle
 
 Requirements: Node.js 22+ and npm.
