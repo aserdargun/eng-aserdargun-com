@@ -35,6 +35,17 @@ jobs:
       - name: Validate and build static artifact
         run: npm run validate:codex
 
+      - name: Read canonical release record
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          repository: aserdargun/aserdargun-com
+          path: .release-registry
+          sparse-checkout: data/living-system.json
+          persist-credentials: false
+
+      - name: Require recorded release SHA and artifact integrity
+        run: node scripts/verify-release.mjs .release-registry/data/living-system.json
+
       - name: Deploy prebuilt artifact
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:

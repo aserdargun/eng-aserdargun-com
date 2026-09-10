@@ -58,8 +58,14 @@ a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--lime);
+  outline: 3px solid var(--blue);
   outline-offset: 4px;
+}
+
+.frontier :focus-visible,
+.platform :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--lime);
 }
 
 ::selection {
@@ -186,6 +192,8 @@ a {
 .platform-shell,
 .production-gate-copy,
 .site-footer {
+  position: relative;
+  isolation: isolate;
   width: var(--content);
   margin-inline: auto;
 }
@@ -286,6 +294,23 @@ a {
   font-size: clamp(18px, 1.55vw, 25px);
   letter-spacing: -0.02em;
   line-height: 1.4;
+}
+
+.hero-boundary {
+  max-width: 62ch;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.frontier-boundary {
+  grid-column: 2;
+  max-width: 80ch;
+  margin: 28px 0 0;
+  color: #dce2ff;
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .hero-actions {
@@ -1157,9 +1182,10 @@ a {
 
 .site-footer::before {
   position: absolute;
-  right: 0;
-  left: 0;
-  height: 170px;
+  right: calc((100vw - 100%) / -2);
+  left: calc((100vw - 100%) / -2);
+  top: 0;
+  bottom: 0;
   content: '';
   background: var(--night);
   transform: translateY(0);
@@ -1198,15 +1224,13 @@ a {
   color: var(--lime);
 }
 
-.js [data-reveal] {
-  opacity: 0;
-  transform: translateY(34px);
-  transition: opacity 620ms ease, transform 620ms ease;
+.js [data-reveal].is-revealed {
+  animation: section-reveal 420ms ease;
 }
 
-.js [data-reveal].is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+@keyframes section-reveal {
+  from { opacity: 0.65; }
+  to { opacity: 1; }
 }
 
 @media (max-width: 1220px) {
@@ -1289,6 +1313,35 @@ a {
 
   .site-nav[data-open='true'] {
     display: grid;
+  }
+
+  .site-nav :focus-visible {
+    outline-color: var(--lime);
+  }
+
+  html:not(.js) .site-header {
+    position: static;
+    flex-wrap: wrap;
+    padding-block: 12px;
+  }
+
+  html:not(.js) .site-nav {
+    position: static;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  html:not(.js) .site-nav a {
+    min-height: 44px;
+    margin: 0;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  html:not(.js) .menu-toggle {
+    display: none;
   }
 
   .site-nav a,
@@ -1414,6 +1467,7 @@ a {
   }
 
   .principle-list,
+  .frontier-boundary,
   .frontier-list,
   .source-ledger,
   .year-list,
@@ -1827,10 +1881,6 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .site-footer::before {
-    height: 250px;
-  }
-
   .site-footer > p {
     text-align: left;
   }
@@ -1858,4 +1908,17 @@ a {
     opacity: 1;
     transform: none;
   }
+}
+
+@media print {
+  html { overflow: visible !important; }
+  .site-header, .skip-link, .hero-actions, .footer-links { display: none; }
+  .js [data-reveal] { opacity: 1; transform: none; animation: none; }
+  .hero, .section-shell, .frontier-shell, .platform-shell, .production-gate-copy, .site-footer {
+    width: 100%;
+  }
+  .section-shell, .frontier-shell, .platform-shell, .production-gate-copy { padding-block: 32px; }
+  .frontier, .platform, .production-gate, .site-footer { print-color-adjust: exact; }
+  h1, h2, h3 { break-after: avoid; }
+  .year-row, .specialization-item, .gate-ledger div { break-inside: avoid; }
 }
