@@ -1,4 +1,4 @@
-import '@fontsource-variable/archivo/wght.css';
+import '@fontsource-variable/archivo/standard.css';
 import '@fontsource/ibm-plex-mono/latin-400.css';
 import '@fontsource/ibm-plex-mono/latin-500.css';
 

@@ -12,7 +12,7 @@ test('document identity and manifesto thesis are explicit', () => {
   assert.match(html, /<h1[^>]*>\s*Build intelligence\s*<span>from matter up\.<\/span>\s*<\/h1>/);
   assert.match(html, /Engineering has to become whole again\./);
   assert.match(html, /open, AI-native curriculum/i);
-  assert.match(html, /Revision 04 · September 2026/);
+  assert.match(html, /Revision 05 · September 2026/);
 });
 
 test('the foundational sequence and continuous human reference are preserved', () => {

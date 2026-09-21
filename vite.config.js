@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import { artifactContract } from './scripts/artifact-contract.mjs';
+import { artifactManifest } from './scripts/artifact-manifest.mjs';
 
 export default defineConfig({
-  plugins: [artifactContract()],
+  plugins: [artifactManifest()],
   server: {
     host: '127.0.0.1',
     port: 4173,
@@ -14,4 +14,3 @@ export default defineConfig({
     strictPort: true,
   },
 });
-

@@ -20,20 +20,19 @@ test('production HTML has no unresolved source entry references', async () => {
 });
 
 
-test('artifact fingerprints match every emitted asset and the current source inputs', async () => {
-  const { sha256 } = await import('../scripts/artifact-contract.mjs');
-  const { SCHEMA_VERSIONS } = await import('../src/site-contract.js');
-  const manifest = JSON.parse(await readFile(new URL('artifact-manifest.json', dist), 'utf8'));
-  assert.deepEqual(manifest.schemaVersions, SCHEMA_VERSIONS);
-  assert.match(manifest.sourceRevision, /^[a-f0-9]{40}$/);
-  for (const required of ['index.html', 'humanoid-exploded.png', 'staticwebapp.config.json']) {
-    assert.ok(manifest.files[required], `${required} is fingerprinted`);
-  }
-  for (const [file, hash] of Object.entries(manifest.files)) {
-    assert.equal(sha256(await readFile(new URL(file, dist))), hash, file);
-  }
-  for (const [file, hash] of Object.entries(manifest.sources)) {
-    assert.equal(sha256(await readFile(new URL(`../${file}`, import.meta.url))), hash, file);
-  }
-  assert.equal(manifest.files['humanoid-exploded.png'], manifest.sources['public/humanoid-exploded.png']);
+import { verifyArtifact, verifyReleaseRecord } from '../scripts/artifact-contract.mjs';
+
+test('built bytes match the source and complete artifact record', async () => {
+  await verifyArtifact();
+});
+
+test('publication rejects missing, stale, dirty, or mismatched release evidence', () => {
+  const sha = 'a'.repeat(40);
+  const manifest = { workingTreeDirty: false, releaseSha: sha };
+  const data = { applications: [{ code: 'eng', releaseSha: sha }] };
+  verifyReleaseRecord(manifest, data, sha);
+  assert.throws(() => verifyReleaseRecord(manifest, { applications: [] }, sha));
+  assert.throws(() => verifyReleaseRecord(manifest, { applications: [{ code: 'eng' }] }, sha));
+  assert.throws(() => verifyReleaseRecord(manifest, data, 'b'.repeat(40)));
+  assert.throws(() => verifyReleaseRecord({ ...manifest, workingTreeDirty: true }, data, sha));
 });

@@ -1,19 +1,30 @@
 import { defineConfig } from '@playwright/test';
+import { createServer } from 'node:net';
+import os from 'node:os';
+import path from 'node:path';
 
-const port = Number(process.env.ENG_TEST_PORT ?? 43181);
-if (!Number.isInteger(port) || port < 1024 || port > 65535) throw new Error('Invalid ENG_TEST_PORT');
-const baseURL = `http://127.0.0.1:${port}`;
+// Isolate verification from developer previews and other checkouts.
+// Workers reload this module: inherit the runner's port instead of allocating another.
+const port = Number(process.env.ENG_E2E_PORT) || await new Promise((resolve, reject) => {
+  const server = createServer();
+  server.once('error', reject);
+  server.listen(0, '127.0.0.1', () => {
+    const assigned = server.address().port;
+    server.close(() => resolve(assigned));
+  });
+});
+process.env.ENG_E2E_PORT = String(port);
 
 export default defineConfig({
-  outputDir: process.env.ENG_TEST_OUTPUT ?? '/tmp/eng-audit-43179-playwright',
   testDir: './e2e',
   fullyParallel: false,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   workers: 1,
   reporter: 'list',
+  outputDir: path.join(os.tmpdir(), `eng-playwright-${port}`),
   use: {
-    baseURL,
+    baseURL: `http://127.0.0.1:${port}`,
     browserName: 'chromium',
     viewport: { width: 1440, height: 1000 },
     colorScheme: 'light',
@@ -22,7 +33,7 @@ export default defineConfig({
   },
   webServer: {
     command: `npx vite preview --host 127.0.0.1 --port ${port} --strictPort`,
-    url: baseURL,
+    url: `http://127.0.0.1:${port}`,
     reuseExistingServer: false,
     timeout: 30_000,
   },

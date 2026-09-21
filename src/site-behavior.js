@@ -12,7 +12,7 @@ export function setMenuState(open, { button, nav, documentElement, pageRegions =
   });
 }
 
-export { SCHEMA_VERSIONS } from './site-contract.js';
+export { CONTRACT_VERSIONS } from './contracts.js';
 
 export function initMenu(documentRef = document, windowRef = documentRef.defaultView) {
   const button = documentRef.querySelector('[data-menu-toggle]');
@@ -20,44 +20,36 @@ export function initMenu(documentRef = document, windowRef = documentRef.default
   if (!button || !nav) return;
 
   const controls = {
-    button,
-    nav,
-    documentElement: documentRef.documentElement,
+    button, nav, documentElement: documentRef.documentElement,
     pageRegions: [...(documentRef.querySelectorAll?.('main, footer') ?? [])],
   };
-  const mobile = windowRef?.matchMedia?.('(max-width: 980px)');
   const isOpen = () => button.getAttribute('aria-expanded') === 'true';
-  const focusDestination = (link) => {
-    if (!link.hash) return;
-    const destination = documentRef.getElementById?.(link.hash.slice(1));
-    destination?.setAttribute('tabindex', '-1');
-    destination?.focus({ preventScroll: true });
-  };
+  const links = () => [...(nav.querySelectorAll?.('a[href]') ?? [])];
   button.addEventListener('click', () => {
-    setMenuState(!isOpen(), controls);
+    const open = !isOpen();
+    setMenuState(open, controls);
+    if (open) links()[0]?.focus();
   });
 
-  nav.addEventListener('click', (event) => {
+  const navigate = (event) => {
     const link = event.target.closest?.('a');
     if (!link) return;
     const wasOpen = isOpen();
     setMenuState(false, controls);
-    focusDestination(link);
-    if (!link.hash && wasOpen) button.focus?.();
-  });
-
-  documentRef.querySelector('.wordmark')?.addEventListener('click', (event) => {
-    setMenuState(false, controls);
-    focusDestination(event.currentTarget);
-  });
-
-  mobile?.addEventListener('change', () => {
-    const focusWasInNav = nav.contains?.(documentRef.activeElement);
-    const focusWasToggle = documentRef.activeElement === button;
-    setMenuState(false, controls);
-    if (mobile.matches && focusWasInNav) button.focus();
-    if (!mobile.matches && focusWasToggle) nav.querySelector('a')?.focus();
-  });
+    if (!link.hash) {
+      if (wasOpen) button.focus?.();
+      return;
+    }
+    // Move keyboard focus to the destination before native fragment scrolling.
+    const destination = documentRef.getElementById?.(decodeURIComponent(link.hash.slice(1)));
+    if (destination) {
+      destination.setAttribute('tabindex', '-1');
+      destination.classList.add('is-revealed');
+      destination.focus({ preventScroll: true });
+    }
+  };
+  nav.addEventListener('click', navigate);
+  documentRef.querySelector('.wordmark')?.addEventListener('click', navigate);
 
   documentRef.addEventListener?.('keydown', (event) => {
     if (!isOpen()) return;
@@ -66,17 +58,24 @@ export function initMenu(documentRef = document, windowRef = documentRef.default
       setMenuState(false, controls);
       button.focus?.();
     } else if (event.key === 'Tab') {
-      const links = [...documentRef.querySelectorAll('.site-header a, .site-header button')];
-      const first = links[0];
-      const last = links.at(-1);
-      if (event.shiftKey && documentRef.activeElement === first) {
+      const items = [button, ...links()];
+      const index = items.indexOf(documentRef.activeElement);
+      if (event.shiftKey && index <= 0) {
         event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && documentRef.activeElement === last) {
+        items.at(-1).focus();
+      } else if (!event.shiftKey && (index === items.length - 1 || index === -1)) {
         event.preventDefault();
-        first.focus();
+        button.focus();
       }
     }
+  });
+
+  const desktop = windowRef?.matchMedia?.('(min-width: 981px)');
+  desktop?.addEventListener('change', ({ matches }) => {
+    const activeElement = documentRef.activeElement;
+    setMenuState(false, controls);
+    if (matches && activeElement === button) links()[0]?.focus();
+    if (!matches && nav.contains?.(activeElement)) button.focus?.();
   });
 }
 
@@ -84,7 +83,8 @@ export function initReveals(documentRef = document, windowRef = window) {
   const sections = [...documentRef.querySelectorAll('[data-reveal]')];
   if (sections.length === 0) return;
 
-  const reduceMotion = windowRef.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  const motion = windowRef.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const reduceMotion = motion?.matches;
   if (reduceMotion || !('IntersectionObserver' in windowRef)) {
     sections.forEach((section) => section.classList.add('is-revealed'));
     return;
@@ -102,4 +102,16 @@ export function initReveals(documentRef = document, windowRef = window) {
   );
 
   sections.forEach((section) => observer.observe(section));
+  documentRef.addEventListener?.('focusin', (event) => {
+    const section = event.target.closest?.('[data-reveal]');
+    if (section) {
+      section.classList.add('is-revealed');
+      observer.unobserve(section);
+    }
+  });
+  motion?.addEventListener?.('change', (event) => {
+    if (!event.matches) return;
+    observer.disconnect();
+    sections.forEach((section) => section.classList.add('is-revealed'));
+  });
 }
