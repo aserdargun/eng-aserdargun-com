@@ -178,6 +178,10 @@ test('desktop navigation focus remains reachable after resizing to mobile', asyn
   await page.goto('/');
   await page.getByRole('link', { name: 'Platform', exact: true }).focus();
   await page.setViewportSize({ width: 390, height: 844 });
+  // The focus hand-off is driven by a matchMedia `change` event, so wait for the
+  // breakpoint to actually be crossed before asserting. Without this the
+  // assertion races the event on a loaded CI runner and fails roughly 1 run in 8.
+  await page.waitForFunction(() => !window.matchMedia('(min-width: 981px)').matches);
   await expect(page.locator('[data-menu-toggle]')).toBeFocused();
   await expect(page.locator('main')).toHaveJSProperty('inert', false);
 });

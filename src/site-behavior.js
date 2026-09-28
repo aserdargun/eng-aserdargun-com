@@ -70,13 +70,39 @@ export function initMenu(documentRef = document, windowRef = documentRef.default
     }
   });
 
-  const desktop = windowRef?.matchMedia?.('(min-width: 981px)');
-  desktop?.addEventListener('change', ({ matches }) => {
+  // Track the breakpoint ourselves instead of trusting a single `change` event.
+  // The event can be missed or can fire while the browser is already reflowing,
+  // which used to strand keyboard focus on a link inside the now-collapsed nav.
+  const query = windowRef?.matchMedia?.('(min-width: 981px)');
+  if (!query) return;
+
+  let wasDesktop = query.matches;
+  const afterLayout = (fn) => {
+    const raf = windowRef?.requestAnimationFrame;
+    if (typeof raf !== 'function') { fn(); return; }
+    // Two frames: the first lets the new breakpoint styles apply, the second
+    // runs once the toggle is actually displayed. Focusing an element that is
+    // still `display: none` is a silent no-op, which is what stranded focus.
+    raf(() => raf(fn));
+  };
+  const applyBreakpoint = (isDesktop) => {
+    if (isDesktop === wasDesktop) return;
     const activeElement = documentRef.activeElement;
+    wasDesktop = isDesktop;
     setMenuState(false, controls);
-    if (matches && activeElement === button) links()[0]?.focus();
-    if (!matches && nav.contains?.(activeElement)) button.focus?.();
-  });
+    if (isDesktop) {
+      if (activeElement === button) links()[0]?.focus();
+      return;
+    }
+    // Focus may already have been dropped to the body by the reflow itself.
+    const stranded = nav.contains?.(activeElement)
+      || activeElement === button
+      || !activeElement || activeElement === documentRef.body;
+    if (stranded) afterLayout(() => button.focus?.());
+  };
+
+  query.addEventListener?.('change', ({ matches }) => applyBreakpoint(matches));
+  windowRef?.addEventListener?.('resize', () => applyBreakpoint(query.matches));
 }
 
 export function initReveals(documentRef = document, windowRef = window) {
