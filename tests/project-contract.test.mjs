@@ -14,11 +14,12 @@ test('package scripts expose the complete local project contract', async () => {
   assert.equal(packageJson.type, 'module');
   assert.deepEqual(
     Object.keys(packageJson.scripts),
-    ['dev:codex', 'build', 'test:unit', 'test:e2e', 'validate:codex', 'stop:codex'],
+    ['dev:codex', 'build', 'test:unit', 'test:e2e', 'validate:codex', 'lint', 'stop:codex'],
   );
   assert.match(packageJson.scripts['dev:codex'], /127\.0\.0\.1/);
   assert.match(packageJson.scripts['dev:codex'], /4173/);
   assert.match(packageJson.scripts['dev:codex'], /--strictPort/);
+  assert.match(packageJson.scripts['validate:codex'], /npm run lint/);
   assert.match(packageJson.scripts['validate:codex'], /git diff --check/);
 });
 
