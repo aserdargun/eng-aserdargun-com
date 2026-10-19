@@ -12,7 +12,7 @@ test('document identity and manifesto thesis are explicit', () => {
   assert.match(html, /<h1[^>]*>\s*Build intelligence\s*<span>from matter up\.<\/span>\s*<\/h1>/);
   assert.match(html, /Engineering has to become whole again\./);
   assert.match(html, /open, AI-native curriculum/i);
-  assert.match(html, /Revision 05 · September 2026/);
+  assert.match(html, /Revision 06 · October 2026/);
 });
 
 test('the foundational sequence and continuous human reference are preserved', () => {
@@ -76,6 +76,7 @@ test('the 2026 frontier makes current physical AI shifts explicit and sourced', 
     'Diagnostic simulation',
     'On-device autonomy',
     'Human-centered safety cases',
+    'Reconstructed simulation',
   ]) {
     assert.match(html, new RegExp(signal, 'i'));
   }
@@ -83,6 +84,9 @@ test('the 2026 frontier makes current physical AI shifts explicit and sourced', 
   assert.match(html, /deepmind\.google\/blog\/gemini-robotics-2/);
   assert.match(html, /Isaac GR00T 1\.7/);
   assert.match(html, /how-to-evaluate-general-purpose-robot-policies/);
+  assert.match(html, /deepmind\.google\/blog\/gemini-4-argon-for-robotics/);
+  assert.match(html, /Gemini 4 Argon for Robotics · 13 Oct 2026/);
+  assert.match(html, /Sources reviewed <time datetime="2026-10-19">19 October 2026<\/time>/);
   assert.match(html, /www\.w3\.org\/TR\/WCAG22/);
 });
 
