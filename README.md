@@ -23,7 +23,7 @@ The Platform section connects the curriculum to [HEX — Humanoid Engineering Ex
 
 Revision 05 (21 September 2026) places ENG within the [aserdargun learning system](https://aserdargun.com/#learning): WFM and SWI are parallel research paths into ITL, which leads to the ENG horizon; HEX is ENG’s exploration companion. These are educational relationships between independent sites, with no shared runtime or experiment transfer. The site remains English-only; the parent portfolio carries Turkish and English descriptions.
 
-The frontier ledger was reviewed on 21 September 2026 against the linked DeepMind and NVIDIA primary sources. Its curriculum responses are editorial interpretations. Project outputs, the AI lab pipeline, and production-candidate review remain proposals. Evidence should identify simulated, estimated, and measured results, while human reviewers retain publication and physical-testing decisions.
+The frontier ledger was reviewed on 24 October 2026 against the linked DeepMind and NVIDIA primary sources. Its curriculum responses are editorial interpretations. Project outputs, the AI lab pipeline, and production-candidate review remain proposals. Evidence should identify simulated, estimated, and measured results, while human reviewers retain publication and physical-testing decisions.
 
 ## Local lifecycle
 
