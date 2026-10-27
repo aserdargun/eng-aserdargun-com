@@ -86,7 +86,8 @@ test('the 2026 frontier makes current physical AI shifts explicit and sourced', 
   assert.match(html, /how-to-evaluate-general-purpose-robot-policies/);
   assert.match(html, /deepmind\.google\/blog\/gemini-4-argon-for-robotics/);
   assert.match(html, /Gemini 4 Argon for Robotics · 13 Oct 2026/);
-  assert.match(html, /Sources reviewed <time datetime="2026-10-25">25 October 2026<\/time>/);
+  assert.match(html, /Sources reviewed <time datetime="2026-10-27">27 October 2026<\/time>/);
+  assert.match(html, /<time datetime="2026-10-27">Reviewed 27 Oct 2026<\/time>/);
   assert.match(html, /www\.w3\.org\/TR\/WCAG22/);
 });
 
